@@ -1,5 +1,5 @@
 import MemberButton from 'components/MemberButton'
-import React, { useState } from 'react'
+import React from 'react'
 import MemberData from 'data/memberData'
 import { HeaderStyles, MemberList, Title } from 'style/HeaderStyle'
 
@@ -9,9 +9,8 @@ const defaultButtonStyle = {
     "$paddingRight": "1rem"
 }
 
-export default function Header() {
+export default function Header({selectedId,setSelectedId}) {
 
-    const [selectedId,setSelectedId] = useState("")
     const activeBtn = (id) => {
 		if (selectedId === id) {
 			setSelectedId("");
