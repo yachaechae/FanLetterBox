@@ -54,6 +54,6 @@ export const ModalBody = styled.div`
     & [type="text"]{
         font-size: 1.5rem;
         line-height: 1.2;
-        height: ${(props) => props.$height || "fit-content"}px;
+        height: 60%;
     }
 `
