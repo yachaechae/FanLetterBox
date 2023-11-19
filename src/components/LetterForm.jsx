@@ -29,7 +29,6 @@ export default function LetterForm({letterList, setLetterList}) {
     const handleSelect = (e) => {
         setLetterOwner(e.target.value)
     }
-    console.log(letterList)
     const writeForm = (event) => {
         event.preventDefault()
         const newLetter = [...letterList,{...letter}]
