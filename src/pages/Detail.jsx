@@ -89,7 +89,7 @@ export default function Detail() {
             </Modal>
             <Modal isOpen={updateModal} closeModal={closeUpdateModal}>
                 <h3>수정하실 내용을 입력해주세요</h3>
-                <InputStyle as="textarea" type="text" $height="170" value={editContent} onChange={editLetter}/>
+                <InputStyle as="textarea" type="text" value={editContent} onChange={editLetter}/>
                 <LetterOptions>
                     <MasterBtn onClick={closeUpdateModal}>취소</MasterBtn>
                     <MasterBtn onClick={updateLetter}>확인</MasterBtn>
