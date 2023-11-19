@@ -2,6 +2,7 @@ import MemberButton from 'components/MemberButton'
 import React from 'react'
 import MemberData from 'data/memberData'
 import { HeaderStyles, MemberList, Title } from 'style/HeaderStyle'
+import { useRootContext } from 'context/rootContext'
 
 const defaultButtonStyle = {
     "$bgColor" : "#fff",
@@ -9,8 +10,8 @@ const defaultButtonStyle = {
     "$paddingRight": "1rem"
 }
 
-export default function Header({selectedId,setSelectedId}) {
-
+export default function Header() {
+    const {selectedId,setSelectedId} = useRootContext()
     const activeBtn = (id) => {
 		if (selectedId === id) {
 			setSelectedId("");

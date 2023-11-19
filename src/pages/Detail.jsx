@@ -1,24 +1,26 @@
 import Modal from "components/global/Modal";
+import { useRootContext } from "context/rootContext";
 import React, { useState } from "react";
 import { PiUserCircleThin } from "react-icons/pi";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { LetterBody, LetterFooter, LetterHeader, LetterOptions, ViewLetter } from "style/DetailStyles";
 import { InputStyle } from "style/InputFormStyle";
 import { ProfileIcon } from "style/LetterListStyle";
 import { MasterBtn } from "style/MasterBtnStyle";
 
 export default function Detail() {
-    const id = useParams();
-    const location = useLocation()
     const navigate = useNavigate()
-    const letter = location.state.letterData
-    const letterList = location.state.letterList
-    const letterNickName = letter.nickName
+    const letterId = useParams().id
+    const { letterList,addLetterList } = useRootContext();
+  
+    const currentLetter = letterList.find((letter) => letter.letterId === letterId);
+
+    const letterNickName = currentLetter.nickName
 
     const [deleteModal, setDeleteModal] =useState(false)
     const [updateModal, setUpdateModal] =useState(false)
     const [nickName, setNickName] = useState("")
-    const [editContent, setEditContent] = useState(letter.content)
+    const [editContent, setEditContent] = useState(currentLetter.content)
 
     const closeDeleteModal = () => setDeleteModal(false)
     const closeUpdateModal = () => setUpdateModal(false)
@@ -35,23 +37,25 @@ export default function Detail() {
     }
     const deleteLetter = () => {        
         const filtered = letterList.filter((letters) => letters.nickName !== letterNickName)
-        
         if(letterNickName === nickName){
-            localStorage.setItem("letterList", JSON.stringify(filtered))
+            addLetterList(filtered)
             closeDeleteModal()
             navigate("/")
         }else alert("닉네임을 확인해주세요!")
     }
     const updateLetter = () => {
-        if(letter.value !== editContent){
+        console.log(currentLetter.value)
+        console.log(editContent)
+        console.log(currentLetter.content === editContent)
+        if(currentLetter.content !== editContent){
             const editedLetter = letterList.map((letters) =>{
-                if(letters.letterId === letter.letterId){
+                if(letters.letterId === currentLetter.letterId){
                     letters.content = editContent
                     letters.createdAt =  new Date().toLocaleString()
                 }
                 return letters
             })
-            localStorage.setItem("letterList", JSON.stringify(editedLetter))
+            addLetterList(editedLetter)
             closeUpdateModal()
         }else {alert("수정된 내용이 없습니다.")
             closeUpdateModal()
@@ -62,16 +66,16 @@ export default function Detail() {
             <ViewLetter>
                 <MasterBtn as="a" href={"/"}>홈으로</MasterBtn>
                 <div className="letter">
-                    <LetterHeader>To. {letter.writeTo}</LetterHeader>
+                    <LetterHeader>To. {currentLetter.writeTo}</LetterHeader>
                     
-                    <LetterBody>{letter.content}</LetterBody>
+                    <LetterBody>{currentLetter.content}</LetterBody>
                     
                     <LetterFooter>
                        <ProfileIcon>   
                             <PiUserCircleThin className='icon'size="40" fill='#fff'/>
                         </ProfileIcon>
-                       From. {letter.nickName}<br/>
-                        {letter.createdAt}
+                       From. {currentLetter.nickName}<br/>
+                        {currentLetter.createdAt}
                     </LetterFooter>
                     <LetterOptions>
                         <MasterBtn value="update" onClick={handleBtn}>수정</MasterBtn>

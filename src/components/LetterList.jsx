@@ -3,9 +3,11 @@ import {  PiUserCircleThin } from "react-icons/pi";
 import memberData from "data/memberData"
 import { LetterBox, Message, ProfileIcon, ProfileText, Sender } from 'style/LetterListStyle'
 import { Link } from 'react-router-dom';
+import { useRootContext } from 'context/rootContext';
 
-export default function LetterList({selectedId, letterList, setLetterList}) {
-    let letterData = []
+export default function LetterList() {
+    const {selectedId, letterList} = useRootContext()
+    let letterData = letterList
     if(selectedId){
         const selectedName = memberData.filter(member => member.id === selectedId)[0].name
         const selectedList = letterList.filter(letters => letters.writeTo === selectedName)
@@ -21,29 +23,25 @@ export default function LetterList({selectedId, letterList, setLetterList}) {
     }else{
         letterData = letterList
     }
-    return !letterData.length == 0 ? (
+    return !letterData.length == 0  ? (
         <LetterBox>
             {letterData.map((letter) => {
                 return (
-                        <ul>
-                            <li>
-                                <Link to={`/detail/${letter.letterId}`}  state={{ letterData: letter, letterList : letterList}} key = {letter.letterId} >
-                                    <Sender >
-                                        <ProfileIcon>
-                                            <PiUserCircleThin className='icon'size="70" fill='#fff'/>
-                                        </ProfileIcon>
-                                        <ProfileText>
-                                            <div className="textArea">
-                                                <h6>{letter.nickName}</h6>
-                                                <span>{letter.createdAt}</span>
-                                            </div>
-                                                <Message><p>{letter.content}</p></Message> 
+                    <Link to={`/detail/${letter.letterId}`}  state={{ letterData: letter, letterList : letterList}} key = {letter.letterId} >
+                        <Sender >
+                            <ProfileIcon>
+                                <PiUserCircleThin className='icon'size="70" fill='#fff'/>
+                            </ProfileIcon>
+                            <ProfileText>
+                                <div className="textArea">
+                                    <h6>{letter.nickName}</h6>
+                                    <span>{letter.createdAt}</span>
+                                </div>
+                                    <Message><p>{letter.content}</p></Message> 
 
-                                        </ProfileText>
-                                    </Sender>
-                                </Link>
-                            </li>
-                        </ul>
+                            </ProfileText>
+                        </Sender>
+                    </Link>
                     
                 )
             })

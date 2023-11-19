@@ -1,41 +1,29 @@
 import React, { useState } from 'react'
 import MemberData from 'data/memberData'
-import { v4 as uuidv4 } from "uuid";
 import { FormStyle, InputStyle, SectionStyle, SelectStyle } from 'style/InputFormStyle'
 import { MasterBtn } from 'style/MasterBtnStyle';
+import { useRootContext } from 'context/rootContext';
 
-const defaultInput = {
-    nickName : "",
-    content : "",
-    letterId: "",
-    createdAt : "",
-    writeTo : ""
-}
+// const defaultInput = {
+//     nickName : "",
+//     content : "",
+//     letterId: "",
+//     createdAt : "",
+//     writeTo : ""
+// }
 
-export default function LetterForm({letterList, setLetterList}) {
-    const [letter,setLetter] = useState(defaultInput)
+export default function LetterForm() {
+    const {letterList, letter, addNewLetter, addLetterList} = useRootContext()
     const [letterOwner,setLetterOwner] = useState("")
-    const uuid = uuidv4()
     
     const letterInfo = (e) => {
         const {name,value} = e.target
-        setLetter({...letter,
-            [name]:value,
-            letterId: uuid,
-            createdAt: new Date().toLocaleString(),
-            writeTo : letterOwner
-        })
+        addNewLetter(name,value, letterOwner)
     }
-    const handleSelect = (e) => {
-        setLetterOwner(e.target.value)
-    }
-    console.log(letterList)
     const writeForm = (event) => {
         event.preventDefault()
         const newLetter = [...letterList,{...letter}]
-        localStorage.setItem("letterList", JSON.stringify(newLetter))
-        setLetterList(newLetter)
-        setLetter(defaultInput)        
+        addLetterList(newLetter)
     }
 
     return (
@@ -43,7 +31,7 @@ export default function LetterForm({letterList, setLetterList}) {
             <FormStyle onSubmit={writeForm}>
                 <SectionStyle>
                     <InputStyle as="label" htmlFor="">누구에게 보내시나요?</InputStyle>
-                    <SelectStyle name="memberList" id="memberList" onChange={handleSelect} defaultValue="" required="required">
+                    <SelectStyle name="memberList" id="memberList" onChange={(e) => {setLetterOwner(e.target.value)}} defaultValue="" required="required">
                         <option value="" disabled >멤버를 선택해주세요!</option>
                         {MemberData.map((member)=>{
                             return (<option key={member.id} name="writeTo" value={member.name}>{member.name}</option>)
