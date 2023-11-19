@@ -44,9 +44,6 @@ export default function Detail() {
         }else alert("닉네임을 확인해주세요!")
     }
     const updateLetter = () => {
-        console.log(currentLetter.value)
-        console.log(editContent)
-        console.log(currentLetter.content === editContent)
         if(currentLetter.content !== editContent){
             const editedLetter = letterList.map((letters) =>{
                 if(letters.letterId === currentLetter.letterId){
