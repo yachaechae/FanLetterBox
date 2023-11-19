@@ -1,71 +1,20 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 데이식스 편지함
+* props drilling으로 제작된 홈페이지를 context, redux로 refactoring 하여 전역상태관리를 어떻게 하는것이 효율적인지 살펴보는 과제
 
-## Available Scripts
+  ### 주요기능
+  * Home  
+  멤버들에게 각각 개인에게 편지를 작성할수 있으며, 멤버들에게 작성된 편지 리스트를 각각 확인할 수 있습니다.
+  * Detail   
+  	목록에서 봤을때 한줄로만 출력된 편지를 자세히 읽어볼수있으며 수정/삭제 가 가능합니다.
 
-In the project directory, you can run:
+ 
+![스크린샷 2023-11-20 오전 5 12 47](https://github.com/yachaechae/FanLetterBox/assets/96414670/6e28048e-4166-4c58-80a4-ecb3b0f9475c)
+![스크린샷 2023-11-20 오전 5 13 28](https://github.com/yachaechae/FanLetterBox/assets/96414670/092236d5-0f73-4fbc-90aa-f203a27b0710)
+각 멤버별 선택시 버튼의 css 를 수정하여 멤버별 특징을 표현했습니다
 
-### `yarn start`
+![스크린샷 2023-11-20 오전 5 22 50](https://github.com/yachaechae/FanLetterBox/assets/96414670/08c9101f-a890-4452-a3d0-75304463b43a)
+기본적으로 전체 리스트가 나오며
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# FanLetterBox
+![스크린샷 2023-11-20 오전 5 23 06](https://github.com/yachaechae/FanLetterBox/assets/96414670/c32a6875-39ab-4ac4-b9a7-b5580990f91d)
+각 멤버들을 선택했을때 멤버에게 도착한 편지를 출력하게 하였습니다.
