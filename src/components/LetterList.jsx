@@ -27,7 +27,7 @@ export default function LetterList() {
         <LetterBox>
             {letterData.map((letter) => {
                 return (
-                    <Link to={`/detail/${letter.letterId}`}  state={{ letterData: letter, letterList : letterList}} key = {letter.letterId} >
+                    <Link to={`/detail/${letter.letterId}`}  key = {letter.letterId} >
                         <Sender >
                             <ProfileIcon>
                                 <PiUserCircleThin className='icon'size="70" fill='#fff'/>
