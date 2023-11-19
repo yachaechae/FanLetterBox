@@ -36,7 +36,6 @@ export const ProfileText = styled.div`
     justify-content: space-around;
     width: calc(100% - 100px);
     height: 100px;
-    font-family: 'HakgyoansimWoojuR';
     & > .textArea{
         width: 100%;
         height: 70px;
@@ -46,7 +45,8 @@ export const ProfileText = styled.div`
         font-size: 1rem;
     }
     & > div > h6{
-        font-size:1.5rem
+        font-size:1.5rem;
+        line-height: 1.2;
     }
 `
 
