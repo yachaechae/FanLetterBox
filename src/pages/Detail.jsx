@@ -1,14 +1,13 @@
 import Modal from "components/global/Modal";
 import React, { useState } from "react";
 import { PiUserCircleThin } from "react-icons/pi";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { LetterBody, LetterFooter, LetterHeader, LetterOptions, ViewLetter } from "style/DetailStyles";
 import { InputStyle } from "style/InputFormStyle";
 import { ProfileIcon } from "style/LetterListStyle";
 import { MasterBtn } from "style/MasterBtnStyle";
 
 export default function Detail() {
-    const id = useParams();
     const location = useLocation()
     const navigate = useNavigate()
     const letter = location.state.letterData
