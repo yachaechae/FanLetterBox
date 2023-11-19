@@ -40,17 +40,14 @@ export function RootProvider({ children }) {
         setLetterList(addData)
         setLetter(defaultInput)
     }
-    console.log(letterList)
 
   useEffect(() => {
     const saveLocalStorage = JSON.parse(localStorage.getItem("letterList"));
-    console.log(saveLocalStorage)
     if(saveLocalStorage){
       setLetterList( saveLocalStorage)
     }
   }, [])
 
-  console.log(letterList)
   const value = {
     selectedId,
     setSelectedId,
