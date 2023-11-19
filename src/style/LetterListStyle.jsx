@@ -3,8 +3,8 @@ const { default: styled } = require("styled-components");
 export const LetterBox = styled.div`
 
     width: 500px;
-    border: solid #000 ${(props) => props.border || "1"}px;
-    margin: 0 auto;
+    border: solid #000 ${(props) => props.$border || "1"}px;
+    margin: 0 auto 5rem;
 
     & h2{
         text-align: center;

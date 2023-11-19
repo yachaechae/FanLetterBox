@@ -10,8 +10,8 @@
         font-style: normal;
     }
     @font-face {
-    font-family: 'HakgyoansimWoojuR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -20,11 +20,11 @@
          color:inherit;
      }
      *{
-        font-family: 'HakgyoansimWoojuR';
+        font-family: 'IM_Hyemin-Bold';
         box-sizing:border-box;
      }
      body{
-        font-family: 'HakgyoansimWoojuR';
+        font-family: 'IM_Hyemin-Bold';
          font-size: 14px;
          background-color:rgba(255,255,255,1);
      }

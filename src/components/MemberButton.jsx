@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { ButtonStyles } from 'style/MemberBtnStyle'
 
 export default function MemberButton({id, name, buttonStyle, activeBtn}) {

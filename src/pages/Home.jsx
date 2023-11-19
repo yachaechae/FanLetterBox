@@ -6,16 +6,21 @@ import React, { useEffect, useState } from "react";
 export default function Home() {
   const [selectedId,setSelectedId] = useState("")
   const [letterList, setLetterList] = useState([])
-  const [modalOpen,setModalOpen] = useState(false)
+  
   useEffect(() => {
-    setLetterList( JSON.parse(localStorage.getItem("letterList")))
+    const saveLocalStorage = JSON.parse(localStorage.getItem("letterList"));
+    if(saveLocalStorage){
+      setLetterList( saveLocalStorage)
+    }
   }, [])
   
+
+
   return (
     <>
         <Header selectedId = {selectedId} setSelectedId={setSelectedId}/>
-        <LetterForm letterList = {letterList} setLetterList={setLetterList} modalOpen = {modalOpen} setModalOpen={setModalOpen}/>
-        <LetterList selectedId = {selectedId} letterList={letterList}/>
+        <LetterForm letterList = {letterList} setLetterList={setLetterList}/>
+        <LetterList selectedId = {selectedId} letterList={letterList} setLetterList={setLetterList}/>
     </>
   );
 }
