@@ -4,14 +4,6 @@ import { FormStyle, InputStyle, SectionStyle, SelectStyle } from 'style/InputFor
 import { MasterBtn } from 'style/MasterBtnStyle';
 import { useRootContext } from 'context/rootContext';
 
-// const defaultInput = {
-//     nickName : "",
-//     content : "",
-//     letterId: "",
-//     createdAt : "",
-//     writeTo : ""
-// }
-
 export default function LetterForm() {
     const {letterList, letter, addNewLetter, addLetterList} = useRootContext()
     const [letterOwner,setLetterOwner] = useState("")
