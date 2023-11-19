@@ -2,7 +2,9 @@ import Modal from "components/global/Modal";
 import { useRootContext } from "context/rootContext";
 import React, { useState } from "react";
 import { PiUserCircleThin } from "react-icons/pi";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { addLetterList } from "redux/action";
 import { LetterBody, LetterFooter, LetterHeader, LetterOptions, ViewLetter } from "style/DetailStyles";
 import { InputStyle } from "style/InputFormStyle";
 import { ProfileIcon } from "style/LetterListStyle";
@@ -11,7 +13,9 @@ import { MasterBtn } from "style/MasterBtnStyle";
 export default function Detail() {
     const navigate = useNavigate()
     const letterId = useParams().id
-    const { letterList,addLetterList } = useRootContext();
+
+    const letterList = useSelector((state) => state.letterList)
+    const dispatch = useDispatch();
   
     const currentLetter = letterList.find((letter) => letter.letterId === letterId);
 
@@ -38,7 +42,7 @@ export default function Detail() {
     const deleteLetter = () => {        
         const filtered = letterList.filter((letters) => letters.nickName !== letterNickName)
         if(letterNickName === nickName){
-            addLetterList(filtered)
+            dispatch(addLetterList(filtered))
             closeDeleteModal()
             navigate("/")
         }else alert("닉네임을 확인해주세요!")
@@ -52,7 +56,7 @@ export default function Detail() {
                 }
                 return letters
             })
-            addLetterList(editedLetter)
+            dispatch(addLetterList(editedLetter))
             closeUpdateModal()
         }else {alert("수정된 내용이 없습니다.")
             closeUpdateModal()

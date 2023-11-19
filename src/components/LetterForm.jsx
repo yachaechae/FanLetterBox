@@ -3,27 +3,28 @@ import MemberData from 'data/memberData'
 import { FormStyle, InputStyle, SectionStyle, SelectStyle } from 'style/InputFormStyle'
 import { MasterBtn } from 'style/MasterBtnStyle';
 import { useRootContext } from 'context/rootContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { addLetterList, addNewLetter } from 'redux/action';
 
-// const defaultInput = {
-//     nickName : "",
-//     content : "",
-//     letterId: "",
-//     createdAt : "",
-//     writeTo : ""
-// }
 
 export default function LetterForm() {
-    const {letterList, letter, addNewLetter, addLetterList} = useRootContext()
+
+    const letterList = useSelector((state) => state.letterList)
+    const letter = useSelector((state) => state.letter)
+    const dispatch = useDispatch();
+    // const letterList = useSelector((state) => state.letterList)
+    // const letterList = useSelector((state) => state.letterList)
+    // const {letter, addNewLetter, addLetterList} = useRootContext()
     const [letterOwner,setLetterOwner] = useState("")
     
     const letterInfo = (e) => {
         const {name,value} = e.target
-        addNewLetter(name,value, letterOwner)
+        dispatch(addNewLetter(name,value, letterOwner))
     }
     const writeForm = (event) => {
         event.preventDefault()
         const newLetter = [...letterList,{...letter}]
-        addLetterList(newLetter)
+        dispatch(addLetterList(newLetter))
     }
 
     return (

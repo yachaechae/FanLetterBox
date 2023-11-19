@@ -4,7 +4,7 @@ import GlobalStyles from 'style/GlobalStyles';
 
 function App() {
     return (
-        <>
+        <>  
             <Router/>
             <GlobalStyles/>
         </>

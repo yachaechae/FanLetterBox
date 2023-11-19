@@ -3,6 +3,8 @@ import React from 'react'
 import MemberData from 'data/memberData'
 import { HeaderStyles, MemberList, Title } from 'style/HeaderStyle'
 import { useRootContext } from 'context/rootContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { setSelectedId } from 'redux/action'
 
 const defaultButtonStyle = {
     "$bgColor" : "#fff",
@@ -11,12 +13,15 @@ const defaultButtonStyle = {
 }
 
 export default function Header() {
-    const {selectedId,setSelectedId} = useRootContext()
+    const selectedId = useSelector((state) => state.selectedId)
+    const dispatch = useDispatch()
+
+
     const activeBtn = (id) => {
 		if (selectedId === id) {
-			setSelectedId("");
+            dispatch(setSelectedId(""))
 		} else {
-			setSelectedId(id);
+			dispatch(setSelectedId(id))
 		}
 	}
     

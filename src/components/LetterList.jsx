@@ -4,9 +4,12 @@ import memberData from "data/memberData"
 import { LetterBox, Message, ProfileIcon, ProfileText, Sender } from 'style/LetterListStyle'
 import { Link } from 'react-router-dom';
 import { useRootContext } from 'context/rootContext';
+import { useSelector } from 'react-redux';
 
 export default function LetterList() {
-    const {selectedId, letterList} = useRootContext()
+
+    const selectedId = useSelector((state) => state.selectedId)
+    const letterList = useSelector((state) => state.letterList)
     let letterData = letterList
     if(selectedId){
         const selectedName = memberData.filter(member => member.id === selectedId)[0].name
