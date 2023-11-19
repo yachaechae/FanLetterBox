@@ -26,6 +26,7 @@ export const InputStyle = styled.input`
     }
     &[type="text"]{
         width: 70%;
+        resize: none;
     }
 `
 

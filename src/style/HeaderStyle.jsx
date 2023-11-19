@@ -13,7 +13,7 @@ export const HeaderStyles = styled.div`
             position: absolute;
             top: 0;
             content: '';
-            background: url(https://i.namu.wiki/i/OIuY4QpaYW50NRfRE6xKSUcGZo37ESC0E8MCxo4HFJ3ZwBswZyTxPvEQsRGcIaK_hyN4ApCnzc0w4xkZzhB0QMtWRJCsBzAkVQqCsTYw961ZglfS0R-evlok9VHg_plaH2Du0JeRBwy4vPtSHe85YQ.webp),linear-gradient(126deg,#a5682b,#a5682b,#ecde61);
+            background: url(https://lv2-cdn.azureedge.net/day6/381be0f8941d40bc952d18aee73ab0c1-%EB%8B%A8%EC%B2%B4%201.jpg),linear-gradient(126deg,#a5682b,#a5682b,#ecde61);
             width:100%;
             height:100%;
             background-repeat: no-repeat;
